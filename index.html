@@ -64,7 +64,7 @@
 
     <!-- Chosen Palette: Warm Mutual Prosperity (Cream background, Deep MG Navy header, Emerald Green & Soft Blue Accents) -->
     <!-- Application Structure Plan:
-         1. Header & Executive Summary: Highlight primary value proposition and core KPI metrics.
+         1. Header & Executive Summary: Highlight primary value proposition and core KPI metrics, with external [계산기] button added.
          2. Interactive Loan & Interest Simulator: Allow potential borrowers/analysts to calculate tailored rate discounts based on traditional market involvement, local currency accounts, and digital banking usage.
          3. Target Eligibility Checker: Interactive self-diagnosis tool to instantly evaluate business suitability.
          4. Product Mechanics & Rate Waterfall Visualization: Chart.js dynamic breakdown of base rate minus multi-tiered discounts.
@@ -72,6 +72,7 @@
          6. Implementation Roadmap & Business Impact: Dynamic timeline with clickable milestones and expected financial/ESG results.
     -->
     <!-- Visualization & Content Choices:
+         - External Link Button: [계산기] button placed prominently in the header bar for direct access to external calculator.
          - Interest Rate Reduction: Dynamic Bar/Waterfall Chart using Chart.js to visualize baseline 6.0% down to 3.0% lowest option.
          - Risk Coverage Ratio: Donut Chart using Chart.js showing 85-100% guarantee coverage vs uncollateralized exposure.
          - Dynamic Interactive Controls: Checkboxes and Sliders for instant loan calculation without full page reloads.
@@ -86,12 +87,16 @@
                 <span class="bg-white text-mg-navy font-black text-xs px-2 py-1 rounded shadow">MG 새마을금고</span>
                 <h1 class="text-lg font-bold tracking-tight">MG 상생 희망드림 대출 기획안</h1>
             </div>
-            <nav class="flex space-x-1 sm:space-x-4 text-xs sm:text-sm font-medium overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
+            <nav class="flex items-center space-x-1 sm:space-x-3 text-xs sm:text-sm font-medium overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
                 <button onclick="switchTab('summary')" id="tab-summary" class="tab-btn active px-3 py-2 whitespace-nowrap hover:text-blue-200">기획 개요</button>
                 <button onclick="switchTab('simulator')" id="tab-simulator" class="tab-btn px-3 py-2 whitespace-nowrap hover:text-blue-200">금리/한도 계산기</button>
                 <button onclick="switchTab('eligibility')" id="tab-eligibility" class="tab-btn px-3 py-2 whitespace-nowrap hover:text-blue-200">지원 자격 진단</button>
                 <button onclick="switchTab('risk')" id="tab-risk" class="tab-btn px-3 py-2 whitespace-nowrap hover:text-blue-200">리스크 관리</button>
                 <button onclick="switchTab('roadmap')" id="tab-roadmap" class="tab-btn px-3 py-2 whitespace-nowrap hover:text-blue-200">추진 일정 & 효과</button>
+                <!-- External Calculator Link Button -->
+                <a href="https://kfcc015-droid.github.io/mg/cal.html" target="_blank" rel="noopener noreferrer" class="ml-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs sm:text-sm px-3 py-1.5 rounded-lg transition duration-200 shadow flex items-center whitespace-nowrap border border-emerald-400">
+                    [계산기] ↗
+                </a>
             </nav>
         </div>
     </header>
@@ -111,6 +116,12 @@
                     전국 1,300여 개 지역 금고망 및 <strong>MG더뱅킹 모바일 앱</strong>을 연계하여 10분 내 신속 지원을 실현하는 
                     <strong>현장 밀착형 포용금융 맞춤 상품</strong>에 관한 종합 계획을 다룹니다.
                 </p>
+                <div class="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between">
+                    <span class="text-xs text-stone-500">실시간 통합 원리금 계산기가 필요하신가요?</span>
+                    <a href="https://kfcc015-droid.github.io/mg/cal.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-bold text-emerald-600 hover:text-emerald-700 underline">
+                        외부 [계산기] 바로가기 ↗
+                    </a>
+                </div>
             </div>
 
             <!-- Key Metrics Summary Cards -->
@@ -177,10 +188,18 @@
         <!-- SECTION 2: LOAN SIMULATOR -->
         <section id="sec-simulator" class="tab-content hidden space-y-6">
             <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
-                <h2 class="text-xl font-bold text-stone-900 mb-2">맞춤형 대출 금리 및 원리금 시뮬레이터</h2>
-                <p class="text-sm text-stone-600 mb-6">
-                    신청 대상 조건 및 우대 항목 체크 시 실제 적용되는 우대 금리와 월 예상 상환 원리금을 실시간으로 산출합니다.
-                </p>
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-stone-900">맞춤형 대출 금리 및 원리금 시뮬레이터</h2>
+                        <p class="text-sm text-stone-600 mt-1">
+                            신청 대상 조건 및 우대 항목 체크 시 실제 적용되는 우대 금리와 월 예상 상환 원리금을 실시간으로 산출합니다.
+                        </p>
+                    </div>
+                    <a href="https://kfcc015-droid.github.io/mg/cal.html" target="_blank" rel="noopener noreferrer" class="mt-3 sm:mt-0 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-3 py-2 rounded-md shadow inline-flex items-center space-x-1 whitespace-nowrap">
+                        <span>전용 [계산기] 열기</span>
+                        <span>↗</span>
+                    </a>
+                </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     <!-- Calculator Inputs -->
@@ -260,7 +279,7 @@
                                     <span class="text-lg font-bold" id="res-monthly-pay">588,200 원</span>
                                 </div>
                                 <div>
-                                    <span class="block text-xs text-blue-200">총 감면 이재 혜택</span>
+                                    <span class="block text-xs text-blue-200">총 감면 이자 혜택</span>
                                     <span class="text-lg font-bold text-amber-300" id="res-total-saved">약 54만 원 절감</span>
                                 </div>
                             </div>
@@ -611,7 +630,7 @@
                 dot.className = 'w-3 h-3 bg-red-500 rounded-full';
                 title.innerText = '신청 불가 (체납/연체 이력 존재)';
                 title.className = 'text-xl font-extrabold text-red-700 mb-2';
-                desc.innerText = "국세/지방세 체납 또는 금융기관 연체 이력이 존재하는 경우 신규 대출 신청이 제한됩니다. 세금 납후 후 재진단을 권장합니다.";
+                desc.innerText = "국세/지방세 체납 또는 금융기관 연체 이력이 존재하는 경우 신규 대출 신청이 제한됩니다. 세금 납부 후 재진단을 권장합니다.";
             } else {
                 dot.className = 'w-3 h-3 bg-amber-500 rounded-full';
                 title.innerText = '지점 방문 유선 상담 권장';
